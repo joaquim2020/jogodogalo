@@ -27,4 +27,4 @@ COPY ./bin/Release/ .
 EXPOSE 3389
 
 # Iniciar o serviço RDP e a aplicação
-CMD Start-Service TermService; Start-Process -FilePath "TicTacToe.exe"; powershell -NoExit
+CMD Start-Service TermService; Start-Process -FilePath "jogodogalo.exe"; powershell -NoExit
