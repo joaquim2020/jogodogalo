@@ -12,20 +12,18 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 RUN Install-WindowsFeature -Name Remote-Desktop-Services
 
 # Configurar o usuário para RDP
-#RUN net user $env:USERNAME $env:PASSWORD /add `
-#    && net localgroup administrators $env:USERNAME /add
+RUN net user $env:USERNAME $env:PASSWORD /add && net localgroup administrators $env:USERNAME /add
 
 # Configurar o usuário para RDP
-RUN net user $env:USERNAME $env:PASSWORD /add; `
-    net localgroup administrators $env:USERNAME /add
+#RUN net user $env:USERNAME $env:PASSWORD /add; `
+#    net localgroup administrators $env:USERNAME /add
 
 # Permitir conexões RDP no firewall
-#RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0 `
-#    && Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0 && Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
 # Permitir conexões RDP no firewall
-RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0; `
-    Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+#RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0; `
+#    Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
 # Copiar a aplicação compilada para o diretório de trabalho
 WORKDIR /app
