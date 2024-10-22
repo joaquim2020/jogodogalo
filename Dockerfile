@@ -1,5 +1,24 @@
 # Use a imagem base do Windows com .NET Framework
-FROM mcr.microsoft.com/dotnet/framework/runtime:4.8-windowsservercore-ltsc2019
+#FROM mcr.microsoft.com/dotnet/framework/runtime:4.8-windowsservercore-ltsc2019
+
+# Use a imagem base do Windows Server 2022 com .NET Framework 4.8
+FROM mcr.microsoft.com/dotnet/framework/runtime:4.8-windowsservercore-ltsc2022
+
+SHELL ["powershell", "-Command"]
+
+# Instalar serviços necessários (exemplo: RDP)
+RUN Install-WindowsFeature -Name Web-Server; `
+    Install-WindowsFeature -Name Remote-Desktop-Services
+
+# Definir o diretório de trabalho
+WORKDIR /app
+
+# Copiar os arquivos da aplicação
+COPY . .
+
+# Definir o comando a ser executado no container
+CMD ["powershell", "Write-Host 'Servidor pronto.'"]
+
 
 # Definir variáveis de ambiente
 ENV USERNAME=adminuser
