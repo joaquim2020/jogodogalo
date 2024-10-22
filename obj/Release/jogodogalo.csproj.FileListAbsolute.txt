@@ -1,0 +1,10 @@
+C:\Users\costa\source\repos\jogodogalo\bin\Release\jogodogalo.exe.config
+C:\Users\costa\source\repos\jogodogalo\bin\Release\jogodogalo.exe
+C:\Users\costa\source\repos\jogodogalo\bin\Release\jogodogalo.pdb
+C:\Users\costa\source\repos\jogodogalo\obj\Release\jogodogalo.csproj.AssemblyReference.cache
+C:\Users\costa\source\repos\jogodogalo\obj\Release\jogodogalo.Form1.resources
+C:\Users\costa\source\repos\jogodogalo\obj\Release\jogodogalo.Properties.Resources.resources
+C:\Users\costa\source\repos\jogodogalo\obj\Release\jogodogalo.csproj.GenerateResource.cache
+C:\Users\costa\source\repos\jogodogalo\obj\Release\jogodogalo.csproj.CoreCompileInputs.cache
+C:\Users\costa\source\repos\jogodogalo\obj\Release\jogodogalo.exe
+C:\Users\costa\source\repos\jogodogalo\obj\Release\jogodogalo.pdb
