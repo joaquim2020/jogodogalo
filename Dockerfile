@@ -10,7 +10,8 @@ SHELL ["powershell", "-Command"]
 #RUN Install-WindowsFeature -Name Web-Server; `
 #    Install-WindowsFeature -Name Remote-Desktop-Services
 
-RUN Install-WindowsFeature -Name Web-Server && Install-WindowsFeature -Name Remote-Desktop-Services
+RUN Install-WindowsFeature -Name Web-Server 
+RUN Install-WindowsFeature -Name Remote-Desktop-Services
 
 # Definir o diretório de trabalho
 WORKDIR /app
