@@ -58,7 +58,9 @@ RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Serv
 #RUN powershell -Command "Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (TCP-In)'; `
 #    Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (UDP-In)'"
 # Habilitar as regras do firewall para Remote Desktop
-RUN powershell -Command "Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (TCP-In)'; Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (UDP-In)'"
+#RUN powershell -Command "Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (TCP-In)'; Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (UDP-In)'"
+# Habilitar as regras do firewall para Remote Desktop
+RUN powershell -Command "Enable-NetFirewallRule -DisplayName \"Remote Desktop - User Mode (TCP-In)\"; Enable-NetFirewallRule -DisplayName \"Remote Desktop - User Mode (UDP-In)\""
 
 
 # Permitir conexões RDP no firewall
