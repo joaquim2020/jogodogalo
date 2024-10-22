@@ -52,7 +52,8 @@ RUN net localgroup administrators $env:USERNAME /add
 RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0
 
 # Habilitar a regra do firewall para conexões de Remote Desktop
-RUN Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+#RUN Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+RUN powershell -Command "Enable-NetFirewallRule -DisplayGroup 'Remote Desktop'"
 
 
 
