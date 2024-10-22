@@ -44,7 +44,8 @@ RUN net localgroup administrators $env:USERNAME /add
 #    net localgroup administrators $env:USERNAME /add
 
 # Permitir conexões RDP no firewall
-RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0 && Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+#RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0 && Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0 Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
 # Permitir conexões RDP no firewall
 #RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0; `
