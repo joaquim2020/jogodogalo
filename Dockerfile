@@ -49,23 +49,23 @@ RUN net localgroup administrators $env:USERNAME /add
 #RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0 
 #RUN Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 # Permitir conexões RDP alterando a configuração no registro
-RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0
+#RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0
 
 # Habilitar a regra do firewall para conexões de Remote Desktop
 #RUN Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 #RUN powershell -Command "Enable-NetFirewallRule -DisplayGroup 'Remote Desktop'"
 # Habilitar as regras do firewall para Remote Desktop
-#RUN powershell -Command "Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (TCP-In)'; `
-#    Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (UDP-In)'"
+#RUN powershell -Command "Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (TCP-In)'; \
+#   Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (UDP-In)'"
 # Habilitar as regras do firewall para Remote Desktop
 #RUN powershell -Command "Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (TCP-In)'; Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (UDP-In)'"
 # Habilitar as regras do firewall para Remote Desktop
-RUN powershell -Command "Enable-NetFirewallRule -DisplayName \"Remote Desktop - User Mode (TCP-In)\"; Enable-NetFirewallRule -DisplayName \"Remote Desktop - User Mode (UDP-In)\""
+#RUN powershell -Command "Enable-NetFirewallRule -DisplayName \"Remote Desktop - User Mode (TCP-In)\"; Enable-NetFirewallRule -DisplayName \"Remote Desktop - User Mode (UDP-In)\""
 
 
 # Permitir conexões RDP no firewall
-#RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0; `
-#    Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+RUN Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name "fDenyTSConnections" -Value 0; \
+    Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
 # Copiar a aplicação compilada para o diretório de trabalho
 WORKDIR /app
