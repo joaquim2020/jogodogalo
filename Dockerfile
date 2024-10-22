@@ -34,7 +34,10 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 RUN Install-WindowsFeature -Name Remote-Desktop-Services
 
 # Configurar o usuário para RDP
-RUN net user $env:USERNAME $env:PASSWORD /add && net localgroup administrators $env:USERNAME /add
+#RUN net user $env:USERNAME $env:PASSWORD /add && net localgroup administrators $env:USERNAME /add
+RUN net user $env:USERNAME $env:PASSWORD /add 
+RUN net localgroup administrators $env:USERNAME /add
+
 
 # Configurar o usuário para RDP
 #RUN net user $env:USERNAME $env:PASSWORD /add; `
