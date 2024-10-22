@@ -7,8 +7,10 @@ FROM mcr.microsoft.com/dotnet/framework/runtime:4.8-windowsservercore-ltsc2022
 SHELL ["powershell", "-Command"]
 
 # Instalar serviços necessários (exemplo: RDP)
-RUN Install-WindowsFeature -Name Web-Server; `
-    Install-WindowsFeature -Name Remote-Desktop-Services
+#RUN Install-WindowsFeature -Name Web-Server; `
+#    Install-WindowsFeature -Name Remote-Desktop-Services
+
+RUN Install-WindowsFeature -Name Web-Server && Install-WindowsFeature -Name Remote-Desktop-Services
 
 # Definir o diretório de trabalho
 WORKDIR /app
